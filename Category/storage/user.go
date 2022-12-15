@@ -3,7 +3,7 @@ package storage
 import (
 	"database/sql"
 	// "fmt"
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/models"
+	"github.com/shakhboznorbekov/mytasks/golang_crud/Category/models"
 )
 
 func Create(db *sql.DB, user models.User) (string, error) {

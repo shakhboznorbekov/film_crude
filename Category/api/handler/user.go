@@ -7,9 +7,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/models"
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/storage"
+	//
+	"github.com/shakhboznorbekov/mytasks/golang_crud/Category/models"
+	"github.com/shakhboznorbekov/mytasks/golang_crud/Category/storage"
 )
 
 // CreateUser godoc
@@ -141,54 +141,6 @@ func (h *HandlerV1) Update(c *gin.Context) {
 	if rowsAffected == 0 {
 		log.Printf("error whiling update rows affected: %v", err)
 		c.JSON(http.StatusInternalServerError, errors.New("error whiling update rows affected").Error())
-		return
-	}
-
-	resp, err := storage.GetById(h.db, user.Id)
-	if err != nil {
-		log.Printf("error whiling get by id: %v\n", err)
-		c.JSON(http.StatusInternalServerError, errors.New("error whiling get by id").Error())
-		return
-	}
-
-	c.JSON(http.StatusOK, resp)
-}
-
-// PatchUser godoc
-// @ID patch_user
-// @Router /user [PATCH]
-// @Summary Patch User
-// @Description Patch User
-// @Tags User
-// @Accept json
-// @Produce json
-// @Param user body models.User true "PatchUserRequestBody"
-// @Success 201 {object} models.User "GetUserBody"
-// @Response 400 {object} string "Invalid Argument"
-// @Failure 500 {object} string "Server Error"
-func (h *HandlerV1) Patch(c *gin.Context) {
-
-	var (
-		user models.UserData
-	)
-
-	err := c.ShouldBindJSON(&user)
-	if err != nil {
-		log.Printf("error whiling patch: %v\n", err)
-		c.JSON(http.StatusBadRequest, err.Error())
-		return
-	}
-
-	rowsAffected, err := storage.Patch(h.db, user)
-	if err != nil {
-		log.Printf("error whiling patch: %v", err)
-		c.JSON(http.StatusInternalServerError, errors.New("error whiling patch").Error())
-		return
-	}
-
-	if rowsAffected == 0 {
-		log.Printf("error whiling update rows affected: %v", err)
-		c.JSON(http.StatusInternalServerError, errors.New("error whiling patch rows affected").Error())
 		return
 	}
 

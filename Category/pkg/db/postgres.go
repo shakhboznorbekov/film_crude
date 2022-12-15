@@ -7,7 +7,7 @@ import (
 
 	_ "github.com/lib/pq"
 
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/config"
+	"github.com/shakhboznorbekov/mytasks/golang_crud/Category/config"
 )
 
 func ConnectionDB(cfg *config.Config) (*sql.DB, error) {

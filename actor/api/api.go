@@ -7,8 +7,8 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
-	_ "github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/api/docs"
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/api/handler"
+	_ "github.com/shakhboznorbekov/mytasks/golang_crud/actor/api/docs"
+	"github.com/shakhboznorbekov/mytasks/golang_crud/actor/api/handler"
 )
 
 func SetUpApi(r *gin.Engine, db *sql.DB) {
@@ -18,7 +18,6 @@ func SetUpApi(r *gin.Engine, db *sql.DB) {
 	r.GET("/user", handlerV1.GetList)
 	r.POST("/user", handlerV1.Create)
 	r.PUT("/user", handlerV1.Update)
-	r.PATCH("/user", handlerV1.Patch)
 	r.GET("/user/:id", handlerV1.GetById)
 	r.DELETE("/user/:id", handlerV1.Delete)
 

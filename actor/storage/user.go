@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	// "fmt"
 
-	"github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master/models"
+	models "github.com/shakhboznorbekov/mytasks/golang_crud/actor/model"
 )
 
 func Create(db *sql.DB, user models.User) (string, error) {
@@ -55,7 +55,7 @@ func GetById(db *sql.DB, id string) (models.User, error) {
 		query,
 		id,
 	).Scan(
-		&user.Id,
+		&user.UserId,
 		&user.FirstName,
 		&user.LastName,
 		&user.LastUpdate,
@@ -94,7 +94,7 @@ func GetList(db *sql.DB) ([]models.User, error) {
 		var user models.User
 
 		err = rows.Scan(
-			&user.Id,
+			&user.UserId,
 			&user.FirstName,
 			&user.LastName,
 			&user.LastUpdate,
@@ -129,7 +129,7 @@ func Update(db *sql.DB, user models.User) (int64, error) {
 
 	result, err := db.Exec(
 		query,
-		user.Id,
+		user.UserId,
 		user.FirstName,
 		user.LastName,
 		user.LastUpdate,

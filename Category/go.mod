@@ -5,7 +5,6 @@ go 1.19
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/lib/pq v1.10.7
-	github.com/shakhboznorbekov/mytasks/30-dars/golang_crud-master v0.0.0-20221213102332-56b0bb939aa1
 	github.com/swaggo/files v1.0.0
 	github.com/swaggo/gin-swagger v1.5.3
 	github.com/swaggo/swag v1.8.8
